@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block body %}
+	{% if user.is_authenticated %}
+	<h3>Hello {{user}}</h3>
+	<a href="{% url 'basic_app:logout' %}">logout?</a>
+	{% else %}
+	<h3>You're not <a href="{% url 'basic_app:login' %}">logged in</a></h3>
+	<h3> <a href="{% url 'basic_app:signup' %}">register?</a></h3>
+	{% endif %}
+
+
+{% endblock body %}

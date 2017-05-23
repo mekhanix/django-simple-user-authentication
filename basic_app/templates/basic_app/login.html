@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block body %}
+	<h2>Please Login</h2>
+		<form action="{% url 'basic_app:login' %}" method="POST">
+			{% csrf_token %}
+	
+		{{loginform.as_p}}
+
+		<input type="submit" name="" value="submit">
+
+		</form>
+	</div>
+	
+
+
+
+{% endblock body %}
