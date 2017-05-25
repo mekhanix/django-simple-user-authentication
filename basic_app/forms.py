@@ -2,7 +2,7 @@ from django import forms
 from django.core import validators
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-
+from  .models import Post
 # OPTIONAL
 class SignupForm(UserCreationForm):
     first_name = forms.CharField(max_length=30, required=True)
@@ -28,3 +28,9 @@ class SignupForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('first_name','last_name','email','vemail','username','password1','password2')
+
+
+class CreatePostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ('title','content')

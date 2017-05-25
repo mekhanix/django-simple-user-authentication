@@ -1,12 +1,15 @@
 {% extends "base.html" %}
 {% block body %}
-	{% if user.is_authenticated %}
-	<h3>Hello {{user}}</h3>
-	<a href="{% url 'basic_app:logout' %}">logout?</a>
-	{% else %}
-	<h3>You're not <a href="{% url 'basic_app:login' %}">logged in</a></h3>
-	<h3> <a href="{% url 'basic_app:signup' %}">register?</a></h3>
-	{% endif %}
 
+<div class="jumbotron">
+<h3 align="center">Welcome To My Site</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p align="center"><a class="btn btn-lg btn-primary" href="{% url 'basic_app:create' %}" role="button">Create Post</a></p>
+</div>
 
 {% endblock body %}

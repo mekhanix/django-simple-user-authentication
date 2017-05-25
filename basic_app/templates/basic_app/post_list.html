@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block body %}
+
+{% for post in posts %}
+<ul>
+	<li><h3><a href="{%url 'basic_app:detail' post.pk%}">{{post.title}}</a></h3></li>
+</ul>
+{% endfor %}
+
+{% endblock body %}

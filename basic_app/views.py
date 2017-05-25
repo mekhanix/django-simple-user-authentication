@@ -4,8 +4,12 @@ from django.contrib.auth import login,authenticate,logout
 # from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
+from django.views.generic import ListView,DetailView,CreateView
+from .forms import SignupForm,CreatePostForm
+from .models import Post
+from django.contrib.auth.models import User
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-from .forms import SignupForm
 
 def index(request):
     return render(request,'index.html')
@@ -53,3 +57,27 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return HttpResponseRedirect(reverse('basic_app:index'))
+
+
+class PostCreateView(LoginRequiredMixin,CreateView):
+    form_class = CreatePostForm
+    template_name = 'post_form.html'
+    login_url = 'basic_app:login'
+
+    # https://stackoverflow.com/questions/22238663/pass-current-user-to-initial-for-createview-in-django
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        print(form.instance)
+        return super(PostCreateView, self).form_valid(form)
+
+
+class PostListView(ListView):
+    template_name = 'post_list.html'
+    model = Post
+    context_object_name = 'posts'
+
+
+class PostDetailView(DetailView):
+    template_name = 'post_detail.html'
+    model = Post
+    context_object_name = 'post'

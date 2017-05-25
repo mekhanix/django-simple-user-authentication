@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block css %}
+	<link rel="stylesheet" href="{% static 'css/registerform.css' %}">
+{% endblock css %}
+{% block body %}
+<form method="POST">
+    {% csrf_token %}
+
+    {{form.as_p}}
+
+    <input class="btn btn-primary" type="submit" value="Post">
+</form>
+{% endblock body %}

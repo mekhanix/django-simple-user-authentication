@@ -1,8 +1,5 @@
 /*regform*/
-.container{
-	margin-top: 20px;
-}
 label{
-    display:inline-table;
+    display:inline-block;
     width:175px;
 }
