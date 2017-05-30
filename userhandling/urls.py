@@ -20,4 +20,5 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', include('basic_app.urls')),
+    url(r'^tinymce/', include('tinymce.urls')),
 ]

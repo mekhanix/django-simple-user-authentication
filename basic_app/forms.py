@@ -3,6 +3,7 @@ from django.core import validators
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from  .models import Post
+from tinymce.widgets import TinyMCE
 # OPTIONAL
 class SignupForm(UserCreationForm):
     first_name = forms.CharField(max_length=30, required=True)
@@ -31,6 +32,7 @@ class SignupForm(UserCreationForm):
 
 
 class CreatePostForm(forms.ModelForm):
+    content = forms.CharField(widget=TinyMCE(attrs={'cols': 400, 'rows': 400}))
     class Meta:
         model = Post
         fields = ('title','content')

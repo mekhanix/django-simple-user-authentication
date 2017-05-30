@@ -4,3 +4,4 @@ gunicorn==19.7.1
 Pillow==4.1.1
 psycopg2==2.7.1
 whitenoise==3.3.0
+django-tinymce==2.6.0

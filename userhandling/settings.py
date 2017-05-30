@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'basic_app',
+    'tinymce',
 ]
 
 MIDDLEWARE = [
@@ -113,6 +114,19 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+# TINYMCE
+TINYMCE_JS_URL = 'http://debug.example.org/tiny_mce/tiny_mce_src.js'
+TINYMCE_DEFAULT_CONFIG = {
+    'plugins': "table,spellchecker,paste,searchreplace",
+    'theme': 'advanced',
+    'height' : '200%',
+    'width' : '100%',
+    'cleanup_on_startup': True,
+    'custom_undo_redo_levels': 10,
+}
+TINYMCE_SPELLCHECKER = True
+TINYMCE_COMPRESSOR = True
 
 # Heroku: Update database configuration from $DATABASE_URL.
 import dj_database_url
